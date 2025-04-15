@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -23,7 +23,6 @@ namespace Lab_8
         private char[] point = { '.', '!', '?', ',', ':', '\"', ';', '–', '(', ')', '[', ']', '{', '}', '/' };
         public Purple_2(string input) : base(input)
         {
-            _output=new string[0];
         }
         public override void Review()
         {
@@ -75,6 +74,11 @@ namespace Lab_8
                     string temp = $"{answer[i].Substring(0, index+1)} {answer[i].Substring(index + 1)}";
                     answer[i] = temp;
                 }
+                if (i != answer.Length - 1)
+                {
+                    answer[i] = answer[i] + Environment.NewLine;
+                }
+                
             }
             _output = new string[answer.Length];
             Array.Copy(answer,_output, answer.Length);
