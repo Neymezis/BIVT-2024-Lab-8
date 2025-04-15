@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace Lab_8
     {
         private string _output;
         public string Output => _output;
-        public (string, char)[] _codes;
+        private (string, char)[] _codes;
         public (string, char)[] Codes
         {
             get
