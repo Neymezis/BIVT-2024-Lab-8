@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +28,24 @@ namespace Lab_8
             for (int j = 0; j < sum.Length; j++)
             {
                 char[] y = new char[sum[j].Length];
+                if(sum[j].Length ==1)
+                {
+                    y[0] = sum[j][0];
+                    continue;
+                }
+                bool diger = true;
+                for(int i = 0; i < sum[j].Length-2; i++)
+                {
+                    if (!digit.Contains(sum[j][i])) diger = false;
+                }
+                if (diger && sum[j][sum[j].Length-2]=='t' && sum[j][sum[j].Length - 1] == 'h')
+                {
+                    for(int i=0;i< sum[j].Length; i++)
+                    {
+                        y[i]=sum[j][i];
+                    }
+                    continue;
+                }
                 int k1 = 0;
                 int k2 = 0;
                 for(int i=0; i < sum[j].Length; i++)
