@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Lab_8
 {
-    public class Purple_2: Purple
+    public class Purple_2 : Purple
     {
-        private string [] _output;
-        public string [] Output
+        private string[] _output;
+        public string[] Output
         {
             get
             {
                 if (_output == null) return null;
-               string[] output =new string[_output.Length];
+                string[] output = new string[_output.Length];
                 Array.Copy(_output, output, _output.Length);
                 return output;
             }
@@ -31,11 +31,11 @@ namespace Lab_8
                 return;
             }
             string[] sum = Input.Split().ToArray();
-            string[] answer = {""};
+            string[] answer = { "" };
 
-            for(int i=0,j=0; i<sum.Length; i++)
+            for (int i = 0, j = 0; i < sum.Length; i++)
             {
-                if (answer[j].Length + sum[i].Length+1 > 50)
+                if (answer[j].Length + sum[i].Length + 1 > 50)
                 {
                     j++;
                     Array.Resize(ref answer, answer.Length + 1);
@@ -44,7 +44,7 @@ namespace Lab_8
                 }
                 else
                 {
-                    if (answer[j].Length==0)
+                    if (answer[j].Length == 0)
                     {
                         string temp1 = $"{answer[j]}{sum[i]}";
                         answer[j] = temp1;
@@ -54,7 +54,7 @@ namespace Lab_8
                         string temp = $"{answer[j]} {sum[i]}";
                         answer[j] = temp;
                     }
-                   
+
                 }
             }
             for (int i = 0; i < answer.Length; i++)
@@ -64,29 +64,29 @@ namespace Lab_8
                 if (answer[i].IndexOf(" ", k) == -1) continue;
                 while (answer[i].Length < 50)
                 {
-                    if(answer[i].IndexOf(" ", k) == -1)
+                    if (answer[i].IndexOf(" ", k) == -1)
                     {
                         l++;
                         k = 0;
                     }
-                    int index = answer[i].IndexOf(" ",k);
+                    int index = answer[i].IndexOf(" ", k);
                     k = index + l;
-                    string temp = $"{answer[i].Substring(0, index+1)} {answer[i].Substring(index + 1)}";
+                    string temp = $"{answer[i].Substring(0, index + 1)} {answer[i].Substring(index + 1)}";
                     answer[i] = temp;
                 }
                 if (i != answer.Length - 1)
                 {
-                    answer[i] = answer[i] + Environment.NewLine;
+                    answer[i] = answer[i];
                 }
-                
+
             }
             _output = new string[answer.Length];
-            Array.Copy(answer,_output, answer.Length);
+            Array.Copy(answer, _output, answer.Length);
         }
         public override string ToString()
         {
             if (Output == null) return null;
-            return String.Join("\n", Output);
+            return String.Join(Environment.NewLine, Output);
         }
     }
 }
