@@ -11,16 +11,6 @@ namespace Lab_8
         private string _output;
         public string Output => _output;
         private (string, char)[] _codes;
-        public (string, char)[] Codes
-        {
-            get
-            {
-                if (_codes == null) return null;
-                (string, char)[] codes = new (string, char)[_codes.Length];
-                Array.Copy(_codes, codes, _codes.Length);
-                return codes;
-            }
-        }
         public Purple_4(string input, (string, char)[] codes) : base(input) 
         {
             if (codes == null) return;
